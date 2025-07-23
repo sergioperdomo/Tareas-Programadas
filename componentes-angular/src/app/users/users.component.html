@@ -5,7 +5,7 @@
   - Este enfoque permite que los datos cambien automáticamente en la vista cuando cambian en el componente (data-binding).
 -->
 <div>
-  <button>
+  <button (click)="changeUser()">
     <img
       [src]="imageRute"
       [alt]="selectedUser.name"

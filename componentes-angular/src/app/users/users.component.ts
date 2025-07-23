@@ -16,4 +16,9 @@ export class UsersComponent {
   get imageRute(){
     return '../../assets/fake-user-photos/' + this.selectedUser.avatar
   }
+
+  changeUser(){
+    const randomIndex = Math.floor(Math.random() * FAKE_USERS.length);
+    this.selectedUser = FAKE_USERS[randomIndex];
+  }
 }
