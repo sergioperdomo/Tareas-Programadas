@@ -12,7 +12,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-
   public users = FAKE_USERS;
 
+  selectedUserId(id: string) {
+    console.log('User selected with ID:', id);
+  }
 }

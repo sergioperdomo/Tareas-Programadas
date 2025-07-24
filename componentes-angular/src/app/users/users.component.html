@@ -1,15 +1,6 @@
-<!--
-  Aprendiendo sobre contenido dinámico en Angular:
-  - Se utiliza interpolación ({{ selectedUser.name }}) para mostrar el nombre del usuario seleccionado dinámicamente.
-  - Se emplea property binding ([src], [alt]) para asignar la ruta de imagen y texto alternativo según el objeto seleccionado.
-  - Este enfoque permite que los datos cambien automáticamente en la vista cuando cambian en el componente (data-binding).
--->
 <div>
-  <button (click)="changeUser()">
-    <img
-      [src]="imageRute"
-      [alt]="name"
-    />
+  <button (click)="showInformationUser()">
+    <img [src]="imageRute" [alt]="name" />
     <span> {{ name }} </span>
   </button>
 </div>
