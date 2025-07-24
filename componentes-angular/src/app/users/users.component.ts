@@ -1,24 +1,18 @@
-import { Component } from '@angular/core';
-import { FAKE_USERS } from '../fake-users';
-
-const randomIndex = Math.floor(Math.random() * FAKE_USERS.length);
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.scss'
+  styleUrl: './users.component.scss',
 })
 export class UsersComponent {
-  public selectedUser = FAKE_USERS[randomIndex];
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
 
-  get imageRute(){
-    return '../../assets/fake-user-photos/' + this.selectedUser.avatar
+  get imageRute() {
+    return '../../assets/fake-user-photos/' + this.avatar;
   }
-
-  changeUser(){
-    const randomIndex = Math.floor(Math.random() * FAKE_USERS.length);
-    this.selectedUser = FAKE_USERS[randomIndex];
-  }
+  changeUser() {}
 }

@@ -1,17 +1,17 @@
 export const FAKE_USERS = [
   {
     id: 'u1',
-    name: 'Sergio Perdomo',
+    name: 'Laura Perdomo',
     avatar: 'usuario-1.png'
   },
   {
     id: 'u2',
-    name: 'Anderson Yepes',
+    name: 'Fanilu Yepes',
     avatar: 'usuario-2.png'
   },
   {
     id: 'u3',
-    name: 'Lola Calamidades',
+    name: 'Andre Caviedes',
     avatar: 'usuario-3.png'
   },
   {
@@ -21,12 +21,12 @@ export const FAKE_USERS = [
   },
   {
     id: 'u5',
-    name: 'Manuela Meñaca',
+    name: 'Manuela Meneces',
     avatar: 'usuario-5.png'
   },
   {
     id: 'u6',
-    name: 'Paola Jara',
+    name: 'Paolo Guerrero',
     avatar: 'usuario-6.png'
   }
 ];
