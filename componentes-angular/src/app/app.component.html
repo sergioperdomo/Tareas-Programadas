@@ -1,14 +1,19 @@
 <app-header></app-header>
 <main>
   <ul id="users">
-    <li *ngFor="let user of users">
+    @for (iteratedUsers of users; track iteratedUsers.id) {
+    <li>
       <app-users
-        [id]="user.id"
-        [avatar]="user.avatar"
-        [name]="user.name"
+        [users]="iteratedUsers"
         (userSelected)="selectedUserId($event)"
       ></app-users>
     </li>
+    }
   </ul>
-  TAREAS  DE USUARIO
+  @if (userIdSelected) {
+    <app-task
+      [userId]="userSelected.name"/>
+  } @else {
+    <p id="textoCondicional">Select a user to see their tasks.</p>
+  }
 </main>
