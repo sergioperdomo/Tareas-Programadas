@@ -5,15 +5,15 @@
     <li>
       <app-users
         [users]="iteratedUsers"
+        [selected]="iteratedUsers.id === userIdSelected"
         (userSelected)="selectedUserId($event)"
       ></app-users>
     </li>
     }
   </ul>
   @if (userIdSelected) {
-    <app-tasks
-      [nameTask]="userSelected.name"/>
+  <app-tasks [idUser]="userSelected.id" [nameTask]="userSelected.name" />
   } @else {
-    <p id="textoCondicional">Select a user to see their tasks.</p>
+  <p id="textoCondicional">Select a user to see their tasks.</p>
   }
 </main>

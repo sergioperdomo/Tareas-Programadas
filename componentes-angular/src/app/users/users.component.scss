@@ -41,7 +41,7 @@ span {
 }
 
 @media (max-width: 767px) {
-  /* Estilo contenedor que envuelve los botones */
+
   #users {
     display: flex;
     flex-direction: row;
@@ -49,11 +49,11 @@ span {
     gap: 0.5rem;
     padding: 0.5rem 0.25rem;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; // Firefox
-    -ms-overflow-style: none; // IE 10+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
-      display: none; // Chrome
+      display: none;
     }
 
     li {
@@ -63,7 +63,7 @@ span {
   }
 
   button {
-    min-width: max-content; // evita que se encoja
+    min-width: max-content;
     padding: 0.5rem 0.75rem;
     font-size: 0.85rem;
     gap: 0.4rem;

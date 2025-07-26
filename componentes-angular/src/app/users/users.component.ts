@@ -1,19 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from './model/users.model';
 
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
-
-/*
- type User = {
-
-  id: string;
-  avatar: string;
-  name: string;
-  }
-*/
 
 @Component({
   selector: 'app-users',
@@ -23,21 +10,9 @@ interface User {
   styleUrl: './users.component.scss',
 })
 export class UsersComponent {
-  /*
-  @Input({ required: true}) users!: {
-    id: string;
-    avatar: string;
-    name: string;
-  }
-
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string; // recibiendo información del componente padre
-  */
-
-  @Input() users!: User; // Viene con un array de objeto: [{id, name, avatar}]
-
-  @Output() userSelected = new EventEmitter<string>(); // Enviar información al componente padre
+  @Input() users!: User;
+  @Input() selected!: boolean;
+  @Output() userSelected = new EventEmitter<string>();
 
   get imageRute() {
     return '../../assets/fake-user-photos/' + this.users.avatar;

@@ -5,4 +5,12 @@
       <button>Agregar Tarea Nueva</button>
     </menu>
   </header>
+
+  <ul>
+    @for (task of taksUserSelected; track task.id) {
+    <li>
+      <app-task [task]="task"></app-task>
+    </li>
+    }
+  </ul>
 </section>
