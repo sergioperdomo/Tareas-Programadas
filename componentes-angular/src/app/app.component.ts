@@ -3,7 +3,7 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { UsersComponent } from './users/users.component';
 import { FAKE_USERS } from './fake-users';
 import { CommonModule } from '@angular/common';
-import { TaskComponent } from './task/tasks.component';
+import { TaskComponent } from './tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
