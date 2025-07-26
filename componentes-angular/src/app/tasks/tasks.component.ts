@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { TaskComponent } from './task/task.component';
+
 
 @Component({
-  selector: 'app-task',
+  selector: 'app-tasks',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss',
 })
-export class TaskComponent {
+export class TasksComponent {
   @Input({ required: true }) nameTask!: string;
 }

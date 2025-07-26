@@ -38,3 +38,28 @@ main {
     text-align: left;
   }
 }
+
+
+@media (max-width: 767px) {
+  main {
+    grid-template-columns: 1fr; // una sola columna
+    margin: 1.5rem auto;
+    gap: 1.5rem;
+  }
+
+  #users {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    li {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+  }
+
+  #textoCondicional {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
