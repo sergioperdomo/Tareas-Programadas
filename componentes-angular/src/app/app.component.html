@@ -12,7 +12,7 @@
   </ul>
   @if (userIdSelected) {
     <app-task
-      [userId]="userSelected.name"/>
+      [nameTask]="userSelected.name"/>
   } @else {
     <p id="textoCondicional">Select a user to see their tasks.</p>
   }

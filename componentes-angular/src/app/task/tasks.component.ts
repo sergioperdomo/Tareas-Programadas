@@ -5,9 +5,9 @@ import { Component, Input } from '@angular/core';
   selector: 'app-task',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './task.component.html',
-  styleUrl: './task.component.scss',
+  templateUrl: './tasks.component.html',
+  styleUrl: './tasks.component.scss',
 })
 export class TaskComponent {
-  @Input({ required: true }) userId!: string;
+  @Input({ required: true }) nameTask!: string;
 }
