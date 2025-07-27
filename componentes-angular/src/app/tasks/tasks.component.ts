@@ -42,4 +42,10 @@ export class TasksComponent {
   get taksUserSelected(){
     return this.fakeTasks.filter((task) => task.idUsuario === this.idUser)
   }
+
+  onFinishedTask(id: string){
+    this.fakeTasks = this.fakeTasks.filter((task) => task.id !== id);
+    // .filter() creates a new array with all elments that pass the test implemented by the provided function.
+  }
+
 }
