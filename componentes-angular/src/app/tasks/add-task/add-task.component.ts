@@ -3,7 +3,6 @@ import {
   EventEmitter,
   HostListener,
   Output,
-  signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewInfoTaks } from '../model/add-task.mode';
