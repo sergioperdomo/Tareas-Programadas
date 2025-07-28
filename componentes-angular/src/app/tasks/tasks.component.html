@@ -2,14 +2,20 @@
   <header>
     <h2>Tareas de {{ nameTask }}</h2>
     <menu>
-      <button>Agregar Tarea Nueva</button>
-    </menu>
+      <button (click)="toggleAddTask()">Agregar Tarea Nueva</button>
+      @if (showAddTask) {
+      <app-add-task (closed)="closedModalNewTask()"></app-add-task>
+      }
+     </menu>
   </header>
 
   <ul>
     @for (task of taksUserSelected; track task.id) {
     <li>
-      <app-task [task]="task" (finishedTask)="onFinishedTask($event)"></app-task>
+      <app-task
+        [task]="task"
+        (finishedTask)="onFinishedTask($event)"
+      ></app-task>
     </li>
     }
   </ul>

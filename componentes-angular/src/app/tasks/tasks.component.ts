@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [CommonModule, TaskComponent],
+  imports: [CommonModule, TaskComponent, AddTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss',
 })
 export class TasksComponent {
   @Input({ required: true }) idUser!: string;
   @Input({ required: true }) nameTask!: string;
+  showAddTask: boolean = false;
 
   fakeTasks = [
     {
@@ -39,13 +41,20 @@ export class TasksComponent {
     },
   ];
 
-  get taksUserSelected(){
-    return this.fakeTasks.filter((task) => task.idUsuario === this.idUser)
+  get taksUserSelected() {
+    return this.fakeTasks.filter((task) => task.idUsuario === this.idUser);
   }
 
-  onFinishedTask(id: string){
+  onFinishedTask(id: string) {
     this.fakeTasks = this.fakeTasks.filter((task) => task.id !== id);
     // .filter() creates a new array with all elments that pass the test implemented by the provided function.
   }
 
+  toggleAddTask() {
+    this.showAddTask = !this.showAddTask;
+  }
+
+  closedModalNewTask(){
+    this.showAddTask = false;
+  }
 }

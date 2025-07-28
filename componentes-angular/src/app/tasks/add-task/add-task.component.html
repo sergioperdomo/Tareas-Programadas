@@ -1,0 +1,25 @@
+<div class="fondo" (click)="closedModalTask()"></div>
+<dialog open>
+  <h2>Agregar Tarea</h2>
+  <form (ngSubmit)="submitTask()">
+    <p>
+      <label for="titulo">Titulo</label>
+      <input type="text" id="titulo" name="titulo" [(ngModel)]="titleEntered" />
+    </p>
+
+    <p>
+      <label for="resumen">Resumen</label>
+      <textarea id="resumen" rows="5" name="resumen" [(ngModel)]="sumamryEntered"></textarea>
+    </p>
+
+    <p>
+      <label for="expira">Fecha Límite</label>
+      <input type="date" id="expira" name="expira" [(ngModel)] ="dateEntered" />
+    </p>
+
+    <p class="acciones">
+      <button type="button" (click)="closedModalTask()">Cancelar</button>
+      <button type="submit">Crear</button>
+    </p>
+  </form>
+</dialog>
