@@ -6,6 +6,7 @@ import {
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NewInfoTaks } from '../model/add-task.mode';
 
 @Component({
   selector: 'app-add-task',
@@ -15,33 +16,22 @@ import { FormsModule } from '@angular/forms';
 })
 export class AddTaskComponent {
   @Output() closed = new EventEmitter<void>();
+  @Output() createdTaskForm = new EventEmitter<NewInfoTaks>();
 
   public titleEntered: string = '';
   public sumamryEntered: string = '';
   public dateEntered: string = '';
 
-  /* 
-  SIGNAL CON LA VINCULACIÓN BIDIRECCIONAL -  Es básicamente llamar la variable en el HTML y poder cambiar su valor desde el HTML, es decir, que se actualice automáticamente en el componente TS.
-  Esto se logra con el uso de la directiva ngModel, que permite la vinculación bidireccional entre el HTML y el componente TS.
-
-  Un signal (es ractivo) es una varibale reactiva que informa automáticamente a Angular cuando su valor cambia, se usa en versiones de la 16 en adelante (16+).
-
-  Cuando usamos signal, Angular sabe exactamente qué parte del DOM (HTML) depende de esa variable, entonces solo se actualiza esa parte específica, y no todo el componente. Esto hace que la aplicación sea más rápida y eficiente.
-
- 
-
-  public titleEntered = signal('');
-  public sumamryEntered = signal('');
-  public dateEntered = signal('');
-
-   */
-
   closedModalTask() {
     this.closed.emit();
   }
 
-  submitTask(){
-    
+  submitTask() {
+    this.createdTaskForm.emit({
+      title: this.titleEntered,
+      summary: this.sumamryEntered,
+      date: this.dateEntered
+    })
   }
 
   @HostListener('document:keydown.escape', ['$event'])

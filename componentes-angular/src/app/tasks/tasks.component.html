@@ -4,7 +4,7 @@
     <menu>
       <button (click)="toggleAddTask()">Agregar Tarea Nueva</button>
       @if (showAddTask) {
-      <app-add-task (closed)="closedModalNewTask()"></app-add-task>
+      <app-add-task (closed)="closedModalNewTask()" (createdTaskForm)="createdTask($event)"></app-add-task>
       }
      </menu>
   </header>

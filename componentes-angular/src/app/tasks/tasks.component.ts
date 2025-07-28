@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { NewInfoTaks } from './model/add-task.mode';
 
 @Component({
   selector: 'app-tasks',
@@ -57,4 +58,18 @@ export class TasksComponent {
   closedModalNewTask(){
     this.showAddTask = false;
   }
+
+  createdTask(taskInfo: NewInfoTaks ){
+    this.fakeTasks.push(
+      {
+        id: Math.random().toString(),
+        idUsuario: this.idUser,
+        titulo: taskInfo.title,
+        resumen: taskInfo.summary,
+        expira: taskInfo.date
+      }
+    );
+    this.showAddTask = false;
+  }
+
 }
