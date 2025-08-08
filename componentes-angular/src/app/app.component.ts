@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { UsersComponent } from './users/users.component';
 import { FAKE_USERS } from './fake-users';
