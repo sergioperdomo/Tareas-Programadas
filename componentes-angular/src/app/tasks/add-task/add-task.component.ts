@@ -1,11 +1,14 @@
+import { TasksService } from './../service/tasks.service';
 import {
   Component,
   EventEmitter,
   HostListener,
+  inject,
+  Input,
   Output,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NewInfoTaks } from '../model/add-task.mode';
+
 
 @Component({
   selector: 'app-add-task',
@@ -14,23 +17,29 @@ import { NewInfoTaks } from '../model/add-task.mode';
   styleUrl: './add-task.component.scss',
 })
 export class AddTaskComponent {
+  @Input({ required: true }) idUser!: string;
   @Output() closed = new EventEmitter<void>();
-  @Output() createdTaskForm = new EventEmitter<NewInfoTaks>();
 
   public titleEntered: string = '';
   public sumamryEntered: string = '';
   public dateEntered: string = '';
+
+  private taskService = inject(TasksService);
 
   closedModalTask() {
     this.closed.emit();
   }
 
   submitTask() {
-    this.createdTaskForm.emit({
-      title: this.titleEntered,
-      summary: this.sumamryEntered,
-      date: this.dateEntered
-    })
+    this.taskService.addTask(
+      {
+        title: this.titleEntered,
+        summary: this.sumamryEntered,
+        date: this.dateEntered,
+      },
+      this.idUser
+    );
+    this.closed.emit();
   }
 
   @HostListener('document:keydown.escape', ['$event'])

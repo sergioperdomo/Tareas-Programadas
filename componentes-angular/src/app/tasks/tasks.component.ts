@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { NewInfoTaks } from './model/add-task.mode';
 import { TasksService } from './service/tasks.service';
 
 @Component({
@@ -31,13 +30,7 @@ export class TasksComponent {
     this.showAddTask = !this.showAddTask;
   }
 
-  closedModalNewTask(){
+  closedModalNewTask() {
     this.showAddTask = false;
   }
-
-  createdTask(taskInfo: NewInfoTaks ){
-    this.taskService.addTask(taskInfo, this.idUser);
-    this.showAddTask = false;
-  }
-
 }
