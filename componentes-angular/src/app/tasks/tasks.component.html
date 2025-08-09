@@ -4,9 +4,12 @@
     <menu>
       <button (click)="toggleAddTask()">Agregar Tarea Nueva</button>
       @if (showAddTask) {
-      <app-add-task (closed)="closedModalNewTask()" (createdTaskForm)="createdTask($event)"></app-add-task>
+      <app-add-task
+        [idUser]="idUser"
+        (closed)="closedModalNewTask()"
+      ></app-add-task>
       }
-     </menu>
+    </menu>
   </header>
 
   <ul>
@@ -14,7 +17,6 @@
     <li>
       <app-task
         [task]="task"
-        (finishedTask)="onFinishedTask($event)"
       ></app-task>
     </li>
     }

@@ -31,6 +31,13 @@ export class TasksService {
     },
   ];
 
+  constructor(){
+    const taks = localStorage.getItem('taks');
+    if(taks){
+      this.fakeTasks = JSON.parse(taks);
+    }
+  }
+
   getTasksUsers(idUser: string) {
     return this.fakeTasks.filter((task) => task.idUsuario === idUser);
   }
@@ -43,10 +50,16 @@ export class TasksService {
       resumen: taskInfo.summary,
       expira: taskInfo.date,
     });
+    this.addTasksToLocalStorage();
   }
 
   deleteTask(id: string) {
     this.fakeTasks = this.fakeTasks.filter((task) => task.id !== id);
     // .filter() creates a new array with all elments that pass the test implemented by the provided function.
+    this.addTasksToLocalStorage();
+  }
+
+  addTasksToLocalStorage(){
+    localStorage.setItem('taks', JSON.stringify(this.fakeTasks));
   }
 }
