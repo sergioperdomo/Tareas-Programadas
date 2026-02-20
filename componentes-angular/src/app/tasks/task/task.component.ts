@@ -16,6 +16,9 @@ export class TaskComponent {
   constructor(private taskService: TasksService) {}
 
   completeTask() {
+    this.taskService.toggleTaskCompletion(this.task.id);
+  }
+  deleteTask() {
     this.taskService.deleteTask(this.task.id);
   }
 }

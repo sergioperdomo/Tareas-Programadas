@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-add-task',
   imports: [FormsModule],
@@ -37,13 +36,14 @@ export class AddTaskComponent {
         summary: this.sumamryEntered,
         date: this.dateEntered,
       },
-      this.idUser
+      this.idUser,
     );
     this.closed.emit();
   }
 
-  @HostListener('document:keydown.escape', ['$event'])
-  handleEscape(event: KeyboardEvent) {
+  @HostListener('document:keydown', ['$event'])
+  handleEscape(event: KeyboardEvent): void {
+    if (event.key !== 'Escape') return;
     this.closedModalTask();
   }
 }

@@ -4,21 +4,19 @@
     <menu>
       <button (click)="toggleAddTask()">Agregar Tarea Nueva</button>
       @if (showAddTask) {
-      <app-add-task
-        [idUser]="idUser"
-        (closed)="closedModalNewTask()"
-      ></app-add-task>
+        <app-add-task
+          [idUser]="idUser"
+          (closed)="closedModalNewTask()"
+        ></app-add-task>
       }
     </menu>
   </header>
 
   <ul>
-    @for (task of taksUserSelected; track task.id) {
-    <li>
-      <app-task
-        [task]="task"
-      ></app-task>
-    </li>
+    @for (task of taksUserSelected$ | async; track task.id) {
+      <li>
+        <app-task [task]="task"></app-task>
+      </li>
     }
   </ul>
 </section>

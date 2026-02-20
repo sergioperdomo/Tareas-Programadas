@@ -1,10 +1,15 @@
 <app-card>
-  <article>
-    <h2>{{ task.titulo }}</h2>
-    <time> {{ task.expira  | date: 'fullDate' }} </time>
-    <p>{{ task.resumen }}</p>
+  <article [class.completed]="task.completed">
+    <h2>{{ task.title }}</h2>
+    <time> {{ task.dueDate | date: "fullDate" }} </time>
+    <p>{{ task.summary }}</p>
     <p class="actions">
-      <button (click)="completeTask()">Terminada</button>
+      <button (click)="completeTask()">
+        {{ task.completed ? "Desmarcar" : "Terminada" }}
+      </button>
+      <button (click)="deleteTask()" title="Eliminar tarea">
+        <span class="material-symbols-outlined">delete</span>
+      </button>
     </p>
   </article>
 </app-card>

@@ -6,10 +6,17 @@ html {
   height: 100%;
 }
 
+:root {
+  --icc-primary: #2E3F78;
+  --icc-primary-dark: #1F2D5A;
+  --icc-light: #F4F6FA;
+  --icc-white: #FFFFFF;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #181023, #0b0519);
-  color: #c3b3d8;
+  background-color: var(--icc-light);
+  color: var(--icc-primary-dark);
   margin: 0;
   padding: 0;
   height: 100%;
