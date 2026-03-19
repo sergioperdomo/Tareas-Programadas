@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { AppHeaderComponent } from './app-header/app-header.component';
-import { UsersComponent } from './users/users.component';
 import { FAKE_USERS } from './fake-users';
-import { CommonModule } from '@angular/common';
-import { TasksComponent } from './tasks/tasks.component';
 
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [AppHeaderComponent, UsersComponent, CommonModule, TasksComponent],
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
